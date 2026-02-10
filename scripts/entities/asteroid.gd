@@ -126,7 +126,8 @@ func destroy() -> void:
 	
 	sprite.hide()
 	Global.add_points(asteroid_points)
-	Global.call_deferred("asteroid_destroyed")
+	await get_tree().process_frame
+	Global.asteroid_destroyed()
 	await destroy_particles.finished
 	queue_free()
 
