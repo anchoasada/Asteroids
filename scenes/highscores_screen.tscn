@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://btit8cmtsb5e"]
+
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="1_31yvg"]
+[ext_resource type="Script" uid="uid://c3xeunljlvk2v" path="res://scripts/ui/highscores_screen.gd" id="1_kc5m7"]
+[ext_resource type="PackedScene" uid="uid://desyee2vbd4xl" path="res://scenes/user_highscore_container.tscn" id="2_kc5m7"]
+
+[node name="HighscoresScreen" type="Control" unique_id=697896343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kc5m7")
+
+[node name="Background" type="ColorRect" parent="." unique_id=806090041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Title" type="Label" parent="." unique_id=1944999435]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.19900002
+anchor_top = 0.069000006
+anchor_right = 0.80100006
+anchor_bottom = 0.17400001
+offset_left = -0.10002136
+offset_top = -0.19999695
+offset_right = 0.099975586
+offset_bottom = -0.2000122
+grow_horizontal = 2
+theme = ExtResource("1_31yvg")
+theme_override_font_sizes/font_size = 84
+text = "HIGHSCORES"
+metadata/_edit_use_anchors_ = true
+
+[node name="HighscoresContainer" type="VBoxContainer" parent="." unique_id=1163984397]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.23711112
+anchor_top = 0.20962502
+anchor_right = 0.78400004
+anchor_bottom = 0.89162505
+offset_left = -0.40000916
+offset_top = -0.2000122
+offset_right = 0.39996338
+offset_bottom = 0.19995117
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="UserHighscoreContainer" parent="HighscoresContainer" unique_id=1478958200 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 1
+username = "AAA"
+
+[node name="UserHighscoreContainer2" parent="HighscoresContainer" unique_id=180347539 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 2
+username = "AAA"
+
+[node name="UserHighscoreContainer3" parent="HighscoresContainer" unique_id=46510331 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 3
+username = "AAA"
+
+[node name="UserHighscoreContainer4" parent="HighscoresContainer" unique_id=1164454142 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 4
+username = "AAA"
+
+[node name="UserHighscoreContainer5" parent="HighscoresContainer" unique_id=1380254104 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 5
+username = "AAA"
+
+[node name="UserHighscoreContainer6" parent="HighscoresContainer" unique_id=1446510877 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 6
+username = "AAA"
+
+[node name="UserHighscoreContainer7" parent="HighscoresContainer" unique_id=1017071143 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 7
+username = "AAA"
+
+[node name="UserHighscoreContainer8" parent="HighscoresContainer" unique_id=721376764 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 8
+username = "AAA"
+
+[node name="UserHighscoreContainer9" parent="HighscoresContainer" unique_id=994270647 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 9
+username = "AAA"
+
+[node name="UserHighscoreContainer10" parent="HighscoresContainer" unique_id=1821523676 instance=ExtResource("2_kc5m7")]
+layout_mode = 2
+position_in_highscore = 10
+username = "AAA"
+
+[node name="ReturnButton" type="Button" parent="." unique_id=2021765240]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.09655559
+anchor_top = 0.892
+anchor_right = 0.3345556
+anchor_bottom = 0.95000005
+offset_left = 0.099975586
+offset_top = 0.39996338
+offset_right = -0.10003662
+offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_31yvg")
+text = "New Game"
+metadata/_edit_use_anchors_ = true
+
+[node name="ResetHSButton" type="Button" parent="." unique_id=478960690]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.45900002
+anchor_top = 0.892
+anchor_right = 0.93200004
+anchor_bottom = 0.95000005
+offset_left = 105.899994
+offset_top = 0.39996338
+offset_right = -105.80005
+offset_bottom = -6.1035156e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_31yvg")
+text = "Reset Highscores"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="ResetHSButton" to="." method="_on_reset_hs_button_pressed"]

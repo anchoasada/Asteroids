@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://7ygmy5j4e3kq"]
+
+[ext_resource type="Script" uid="uid://bb6c08in3y4oh" path="res://scripts/entities/asteroid.gd" id="1_akfqu"]
+[ext_resource type="AudioStream" uid="uid://2v33sfh1p80h" path="res://assets/sound_effects/bangLarge.wav" id="2_pnq5b"]
+[ext_resource type="AudioStream" uid="uid://caowdehhlg3xg" path="res://assets/sound_effects/bangMedium.wav" id="3_pwrvu"]
+[ext_resource type="AudioStream" uid="uid://cpbi3236d3yl4" path="res://assets/sound_effects/bangSmall.wav" id="4_0jovh"]
+
+[sub_resource type="Curve" id="Curve_akfqu"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.754864, 0.99796116), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Asteroid" type="Area2D" unique_id=2070024595 groups=["asteroid"]]
+collision_mask = 7
+script = ExtResource("1_akfqu")
+
+[node name="DestroyParticles" type="CPUParticles2D" parent="." unique_id=1229252105]
+emitting = false
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_akfqu")
+
+[node name="BigExplosionSound" type="AudioStreamPlayer" parent="." unique_id=1800249154]
+stream = ExtResource("2_pnq5b")
+volume_db = -5.0
+
+[node name="MediumExplosionSound" type="AudioStreamPlayer" parent="." unique_id=743445109]
+stream = ExtResource("3_pwrvu")
+volume_db = -5.0
+
+[node name="SmallExplosionSound" type="AudioStreamPlayer" parent="." unique_id=520104522]
+stream = ExtResource("4_0jovh")
+volume_db = -5.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

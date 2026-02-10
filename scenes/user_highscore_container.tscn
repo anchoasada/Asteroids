@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://desyee2vbd4xl"]
+
+[ext_resource type="Script" uid="uid://bq844wjillfc3" path="res://scripts/ui/user_highscore_container.gd" id="1_57o31"]
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="2_x6eev"]
+
+[node name="UserHighscoreContainer" type="HBoxContainer" unique_id=1478958200]
+anchors_preset = -1
+anchor_right = 0.518
+anchor_bottom = 0.14400001
+offset_right = -259.2
+offset_bottom = -0.20000458
+theme_override_constants/separation = 78
+script = ExtResource("1_57o31")
+
+[node name="UserContainer" type="HBoxContainer" parent="." unique_id=737543755]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+theme_override_constants/separation = 37
+alignment = 2
+
+[node name="PositionLabel" type="Label" parent="UserContainer" unique_id=315951944]
+layout_mode = 2
+theme = ExtResource("2_x6eev")
+theme_override_font_sizes/font_size = 45
+text = "10"
+
+[node name="UsernameLabel" type="Label" parent="UserContainer" unique_id=1441045242]
+layout_mode = 2
+theme = ExtResource("2_x6eev")
+theme_override_font_sizes/font_size = 45
+text = "AAA"
+
+[node name="PointsLabel" type="Label" parent="." unique_id=445490057]
+layout_mode = 2
+theme = ExtResource("2_x6eev")
+theme_override_font_sizes/font_size = 45
+text = "00000000"

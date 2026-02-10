@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://33qdn1rnoj2k"]
+
+[ext_resource type="Script" uid="uid://cdgwbr0yhi3uc" path="res://scripts/ui/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="1_xeevv"]
+[ext_resource type="PackedScene" uid="uid://we5u0fgeas5r" path="res://scenes/submit_score.tscn" id="3_tbwuq"]
+
+[sub_resource type="Animation" id="Animation_xeevv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NewGameButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NewGameButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wqhvx"]
+resource_name = "screen_spawn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameOverLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NewGameButton:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NewGameButton:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tbwuq"]
+_data = {
+&"RESET": SubResource("Animation_xeevv"),
+&"screen_spawn": SubResource("Animation_wqhvx")
+}
+
+[node name="GameOver" type="Control" unique_id=31464850]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="GameOverLabel" type="Label" parent="." unique_id=1090834941]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28300002
+anchor_top = 0.32500005
+anchor_right = 0.717
+anchor_bottom = 0.41500005
+offset_left = 0.29997253
+offset_top = -3.0517578e-05
+offset_right = -0.2999878
+offset_bottom = 3.0517578e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xeevv")
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 72
+text = "Game Over"
+metadata/_edit_use_anchors_ = true
+
+[node name="NewGameButton" type="Button" parent="." unique_id=165508239]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.33600003
+anchor_top = 0.61
+anchor_right = 0.66400003
+anchor_bottom = 0.73
+offset_left = -0.4000244
+offset_right = 0.39996338
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xeevv")
+theme_override_font_sizes/font_size = 54
+text = "New Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=148194631]
+libraries/ = SubResource("AnimationLibrary_tbwuq")
+
+[node name="SubmitScore" parent="." unique_id=1268332927 instance=ExtResource("3_tbwuq")]
+layout_mode = 1
+offset_left = 1008.0
+offset_top = 6.0
+offset_right = 1008.0
+offset_bottom = 6.0
+
+[connection signal="pressed" from="NewGameButton" to="." method="_on_new_game_button_pressed"]

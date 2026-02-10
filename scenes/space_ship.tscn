@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://b6p0a1gi5w520"]
+
+[ext_resource type="Script" uid="uid://dck1ga4j02a1b" path="res://scripts/entities/space_ship.gd" id="1_bt5oy"]
+[ext_resource type="Texture2D" uid="uid://bnbk1gti0qrkp" path="res://assets/sprites/space_ship.svg" id="1_dp8cb"]
+[ext_resource type="AudioStream" uid="uid://cu18ue6g3xci3" path="res://assets/sound_effects/thrust.wav" id="3_jy7xo"]
+[ext_resource type="Texture2D" uid="uid://cvyywywdhpiac" path="res://assets/sprites/kill_particle.svg" id="4_n0g6o"]
+[ext_resource type="AudioStream" uid="uid://cpbi3236d3yl4" path="res://assets/sound_effects/bangSmall.wav" id="5_4246p"]
+
+[sub_resource type="Animation" id="Animation_4246p"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_n8dcg"]
+resource_name = "invulnerability"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false, true, false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivtut"]
+_data = {
+&"RESET": SubResource("Animation_4246p"),
+&"invulnerability": SubResource("Animation_n8dcg")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt5oy"]
+atlas = ExtResource("1_dp8cb")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy7xo"]
+atlas = ExtResource("1_dp8cb")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n0g6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt5oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy7xo")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 15.0
+}]
+
+[sub_resource type="Curve" id="Curve_jy7xo"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7451364, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_4246p"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.32198456, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SpaceShip" type="CharacterBody2D" unique_id=947251370 groups=["player"]]
+scale = Vector2(0.5424402, 0.64000016)
+script = ExtResource("1_bt5oy")
+
+[node name="Bullets" type="Node" parent="." unique_id=616840877]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=463626306]
+libraries/ = SubResource("AnimationLibrary_ivtut")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=209989209]
+sprite_frames = SubResource("SpriteFrames_n0g6o")
+animation = &"moving"
+frame_progress = 0.24191622
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1716362207]
+polygon = PackedVector2Array(-26, 24, 0.5, -34, 26, 24)
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="." unique_id=153019931]
+position = Vector2(0.5, -35)
+
+[node name="MovingParticles" type="CPUParticles2D" parent="." unique_id=896039878]
+position = Vector2(0, 24.999994)
+amount = 20
+lifetime = 0.5
+direction = Vector2(0, 1)
+spread = 40.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 70.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_jy7xo")
+
+[node name="KillParticles" type="CPUParticles2D" parent="." unique_id=1343604240]
+emitting = false
+amount = 5
+texture = ExtResource("4_n0g6o")
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.3
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 50.0
+angle_max = 360.0
+
+[node name="ShotParticles" type="CPUParticles2D" parent="." unique_id=1696252496]
+position = Vector2(0.5, -35)
+emitting = false
+amount = 3
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_4246p")
+
+[node name="MovingSound" type="AudioStreamPlayer" parent="." unique_id=1627498465]
+stream = ExtResource("3_jy7xo")
+volume_db = -10.0
+
+[node name="ExplosionSound" type="AudioStreamPlayer" parent="." unique_id=2000437995]
+stream = ExtResource("5_4246p")
+volume_db = -5.0
+
+[node name="ShotCooldown" type="Timer" parent="." unique_id=414499270]
+wait_time = 0.15
+one_shot = true

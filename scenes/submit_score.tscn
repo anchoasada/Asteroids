@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://we5u0fgeas5r"]
+
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="1_ihsir"]
+[ext_resource type="Script" uid="uid://dnjobew7w02e0" path="res://scripts/ui/submit_score.gd" id="1_x2los"]
+[ext_resource type="PackedScene" uid="uid://dmmdhcuqtleey" path="res://scenes/enter_score_input.tscn" id="2_61nmk"]
+
+[node name="SubmitScore" type="Control" unique_id=1268332927]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x2los")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1559791634]
+
+[node name="Background" type="ColorRect" parent="." unique_id=428612953]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PointsContainer" type="VBoxContainer" parent="." unique_id=1585370681]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.177
+anchor_top = 0.141
+anchor_right = 0.823
+anchor_bottom = 0.39900002
+offset_left = -0.30000305
+offset_top = 0.19999695
+offset_right = 0.2999878
+offset_bottom = -0.2000122
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+
+[node name="TitlePoints" type="Label" parent="PointsContainer" unique_id=1751292629]
+layout_mode = 2
+theme = ExtResource("1_ihsir")
+theme_override_constants/outline_size = 6
+text = "Points: "
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PointsAmount" type="Label" parent="PointsContainer" unique_id=1225304735]
+layout_mode = 2
+theme = ExtResource("1_ihsir")
+theme_override_font_sizes/font_size = 60
+text = "00000000000000"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ScoreInputContainer" type="VBoxContainer" parent="." unique_id=492236485]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.512
+anchor_right = 0.85
+anchor_bottom = 0.767
+offset_top = 0.3999939
+offset_bottom = 0.39996338
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 65
+
+[node name="TitleName" type="Label" parent="ScoreInputContainer" unique_id=1219455182]
+layout_mode = 2
+theme = ExtResource("1_ihsir")
+theme_override_constants/outline_size = 6
+text = "Type your nickname:"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="EnterScoreInput" parent="ScoreInputContainer" unique_id=137697396 instance=ExtResource("2_61nmk")]
+layout_mode = 2
+text = "AAA"
+
+[node name="ConfirmWarningLabel" type="Label" parent="." unique_id=883957110]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.85200006
+anchor_right = 0.86100006
+anchor_bottom = 0.91700006
+offset_top = 0.39996338
+offset_right = -9.900024
+offset_bottom = -5.6000366
+theme = ExtResource("1_ihsir")
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 51
+text = "Press Enter to confirm"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

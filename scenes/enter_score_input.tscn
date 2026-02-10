@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dmmdhcuqtleey"]
+
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="1_4fijq"]
+[ext_resource type="Script" uid="uid://cu1psakcjnmeu" path="res://scripts/ui/enter_score.gd" id="2_a0uk2"]
+
+[node name="EnterScoreInput" type="LineEdit" unique_id=137697396]
+anchors_preset = -1
+anchor_right = 0.13000001
+anchor_bottom = 0.075
+offset_right = -117.00001
+offset_bottom = -60.000004
+theme = ExtResource("1_4fijq")
+theme_override_font_sizes/font_size = 60
+alignment = 1
+max_length = 3
+context_menu_enabled = false
+emoji_menu_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+drag_and_drop_selection_enabled = false
+script = ExtResource("2_a0uk2")
+
+[connection signal="text_change_rejected" from="." to="." method="_on_text_change_rejected"]
+[connection signal="text_changed" from="." to="." method="_on_text_changed"]
+[connection signal="visibility_changed" from="." to="." method="_on_visibility_changed"]

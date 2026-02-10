@@ -1,0 +1,280 @@
+[gd_scene format=3 uid="uid://pgk7solexsgb"]
+
+[ext_resource type="Script" uid="uid://b62yu2qty2h81" path="res://IntroScene/start_screen.gd" id="1_ps2jb"]
+[ext_resource type="PackedScene" uid="uid://cgba7seers3mg" path="res://scenes/menu.tscn" id="2_b7aam"]
+[ext_resource type="FontFile" uid="uid://fbb7fj461xx5" path="res://IntroScene/Modeseven-L3n5.ttf" id="2_h0cri"]
+[ext_resource type="AudioStream" uid="uid://cl76vgvkpf4py" path="res://IntroScene/typewriter-1.mp3" id="3_j350n"]
+
+[sub_resource type="Animation" id="Animation_o7i0r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoaiLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoaiLabel:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextLabel:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoaiLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TypeSoundEffect:stream_paused")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_he1sj"]
+resource_name = "startup"
+length = 8.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MoaiLabel:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 8, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MoaiLabel:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 4.3, 4.6, 4.9, 5.2, 5.4666667, 5.716666, 5.9999995),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 1, 1), Color(0, 0, 1, 1), Color(4.6205523e-06, 0.6982416, 0.8012659, 1), Color(0, 1, 0, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextLabel:visible_characters")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2, 4, 8, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-1, 7, 7, 19, 19, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MoaiLabel:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 8.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("TypeSoundEffect")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 8, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("TypeSoundEffect:stream_paused")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.2, 2, 4.6, 8, 8.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r2jwc"]
+_data = {
+&"RESET": SubResource("Animation_o7i0r"),
+&"startup": SubResource("Animation_he1sj")
+}
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_hm208"]
+
+[node name="StartScreen" type="Control" unique_id=1812200552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ps2jb")
+next_scene = ExtResource("2_b7aam")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1788207806]
+libraries/ = SubResource("AnimationLibrary_r2jwc")
+autoplay = &"startup"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=574656966]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MoaiLabel" type="RichTextLabel" parent="." unique_id=342181536]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517
+anchor_top = 0.22600001
+anchor_right = 0.97300005
+anchor_bottom = 0.97
+offset_left = -0.3000183
+offset_top = 0.19999695
+offset_right = 0.29992676
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 12
+text = "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣠⣤⣤⣤⣤⡤⠶⠷⠖⣶⠶⣶⣶⣤⣤⣤⣤⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⠟⠋⠉⠻⢿⣹⣿⣿⠄⠀⠰⣴⣷⣿⣿⣿⣿⠉⢿⣟⠹⠿⢶⣄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡾⠿⢿⣄⠀⠀⠈⠙⠋⠁⠀⠘⣿⣯⡻⢿⣿⡿⣿⣦⣿⢿⠄⣁⠘⣿⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡿⣷⣶⣿⣿⣷⢶⣦⡀⠀⠀⠐⣾⢿⣿⣧⣠⣿⣾⣽⡅⠀⠀⡄⠣⠀⣻⣧⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠟⢡⣿⡯⠋⠈⠉⠉⠉⠁⠀⠀⠀⣼⣿⣿⣽⣿⣯⡿⣾⡇⣀⠝⠀⠀⢰⣼⣿⡄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⡖⠀⠉⠴⢿⡅⣴⣆⠀⠀⠀⠀⣸⣿⣿⣿⠟⣡⢋⣑⣾⣿⠋⠀⢀⠄⢠⡏⣿⡇⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⣯⣥⣗⣠⣐⣢⣾⣻⣿⣷⣶⣒⣠⣶⣻⡿⢻⠟⣼⠛⠏⠃⠘⠉⢃⡆⠨⠀⠀⢱⣽⣷⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣵⣥⣀⣐⣤⣅⡜⢁⠑⠀⠀⠺⢿⣿⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠙⠛⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠂⠁⡆⢠⣀⠂⠀⣈⣿⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠃⣰⣷⣼⣧⣤⣆⢹⣾⡠⠗⣀⢿⣿⡇⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣿⣿⣿⣿⡟⣿⡿⢻⣿⣿⢽⣿⣿⣟⣅⠀⠀⠈⣿⣷⣿⣿⣿⠀⣿⠁⠀⣻⠈⣿⣿⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⣿⣿⣿⣿⣿⣶⣿⣧⣶⣿⠶⣈⣿⣿⣿⣿⠓⠀⡐⣿⣿⣿⣿⣿⡾⣿⢃⠸⣻⡀⣽⣿⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⣯⣿⣿⣻⣿⣿⣿⣿⣿⣿⣿⣧⣾⣿⣿⣿⡽⣟⣃⣴⣿⣿⣼⣾⣿⣻⣿⣇⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣼⣯⣿⣿⣿⣯⣿⣿⣿⢣⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣯⣿⣿⣿⣿⣦⣍⢻⣿⡇⢻⣿⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢰⣿⡿⢏⣡⣾⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡛⢁⣾⡝⢀⡻⣿⡇⠀⠀
+⠀⠀⠀⠀⠀⣠⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⣋⣿⡿⢿⣿⣷⣎⢸⡏⡌⣻⠸⣿⠀⠀
+⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣷⣿⣿⣾⢳⣤⣹⣿⣾⡿⠀⠃⠟⣿⡆⠀
+⠀⣠⣾⣿⠿⠿⠿⠻⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⢚⣙⣯⣿⡇⢘⡟⣇⣀⢽⣿⣠⡀⢸⣾⣇⠀
+⣼⣿⣭⣧⣄⣀⣀⡀⠀⠀⠀⠈⣙⠭⣙⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⡿⡗⢿⣿⡿⠭⢧⢈⣴⢿⡟⠉⠂⠈⠋⣿⡀
+⣿⣿⣿⣿⣿⣿⣿⣿⣾⣶⣤⣜⣋⣄⣋⣝⣟⣿⣹⢿⣿⣿⡿⣿⣿⣿⣿⣿⣿⣧⣶⣿⡆⡀⢰⣿⠃⣔⠇⠀⠀⢀⢟⣿⡇
+⠈⠉⠙⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⣿⣿⣿⣿⣹⡿⣿⣿⠿⠐⣁⣀⢺⢄⡀⠀⣀⣯⡌⢻⣧
+⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⣡⣶⣾⣿⣿⣿⣿⡟⣋⣹⣿⠚⠀⢠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣿
+⠀⠀⢠⣿⣿⣿⣿⣿⣿⣿⠿⡿⠿⡿⠿⠟⠛⠉⢀⣴⣿⣿⣿⣿⣿⣿⡟⡺⡿⢛⡄⠀⡀⠼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⢀⣾⣛⣉⣉⣀⣀⣀⡀⣀⢀⠀⠀⠀⢠⠠⠀⢸⡿⣿⣿⣿⣿⣿⣿⣱⡿⢂⡾⠁⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣿⣿⣿
+⠀⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣽⣷⣧⣿⣥⣾⣿⣇⢹⢻⣽⡿⣰⣜⠁⠀⠀⠀⠀⠀⠀⠀⠘⣿⣿⣿⡿⣯⣿⣿
+⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠰⢀⣨⠽⢿⡿⠛⠁⠚⠀⣠⠘⠃⠀⠀⠀⠀⠀⠀⢭⣫⠞⠧⡘⣽⣿
+⠀⠀⠀⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠄⠀⠀⠀⠙⢚⡿⠠⠀⡤⠀⣠⣿⠇⣀⡀⠀⠀⠀⠀⠀⠊⠈⠀⠀⠌⢺⣿
+⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠉⠀⠀⠀⠀⠀⣀⣪⣽⣃⡾⣶⣼⣿⣷⢰⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⢰⢩⣾⣿
+⠀⠀⠀⢸⣿⡿⠙⠿⢿⠟⠻⠿⠿⠏⠀⠀⠠⠂⢀⠀⣼⡿⣃⢿⣛⡛⣥⣿⣻⣿⡟⠉⠀⠀⠀⠀⠀⠀⢐⣵⣤⣄⣿⣿⣿
+⠀⠀⠀⠘⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⢀⠈⠇⠼⢁⣠⠏⠁⡀⣸⠋⢵⢾⣿⡝⠟⠀⠀⠀⠀⠀⣀⣤⣿⣿⣿⣿⣿⣿⣿⡏
+⠀⠀⠀⠀⢻⣿⣷⣦⣦⣤⣠⣀⣀⣀⢦⠀⢀⣚⢉⠀⢠⡾⡻⠙⠱⠚⠫⣏⣡⣤⣶⣾⣿⣿⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃
+⠀⠀⠀⠀⠀⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠁⠀
+⠀⠀⠀⠀⠀⠀⠀⠈⠙⠻⠿⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠟⠋⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠋⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_hm208")]
+
+[node name="TextLabel" type="RichTextLabel" parent="." unique_id=1632771531]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.059000004
+anchor_right = 0.56700003
+anchor_bottom = 0.35500002
+offset_left = 0.099998474
+offset_top = -0.20000458
+offset_right = -0.3000183
+theme_override_colors/default_color = Color(0.7370289, 0.7370289, 0.7370289, 1)
+theme_override_fonts/normal_font = ExtResource("2_h0cri")
+theme_override_font_sizes/normal_font_size = 45
+text = "Made by
+
+Anchoasada"
+
+[node name="TypeSoundEffect" type="AudioStreamPlayer" parent="." unique_id=1322020562]
+stream = ExtResource("3_j350n")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]

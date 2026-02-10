@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://btfqtafr1ouyo"]
+
+[ext_resource type="PackedScene" uid="uid://b6p0a1gi5w520" path="res://scenes/space_ship.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://m0meqqwgw75h" path="res://scripts/game_manager.gd" id="2_iywne"]
+[ext_resource type="PackedScene" uid="uid://d0sdfmimpbygn" path="res://scenes/ui.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cgba7seers3mg" path="res://scenes/menu.tscn" id="3_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://33qdn1rnoj2k" path="res://scenes/game_over.tscn" id="4_lbhrr"]
+[ext_resource type="AudioStream" uid="uid://quhcdx3l42ap" path="res://assets/sound_effects/beat1.wav" id="5_p57ef"]
+[ext_resource type="AudioStream" uid="uid://do7xwokab42u3" path="res://assets/sound_effects/beat2.wav" id="6_u5sy4"]
+
+[node name="Game" type="Node" unique_id=728746053]
+
+[node name="SpaceShip" parent="." unique_id=947251370 instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(421, 338)
+
+[node name="GameManager" type="Node" parent="." unique_id=66574751]
+script = ExtResource("2_iywne")
+MENU_SCENE = ExtResource("3_u5sy4")
+
+[node name="Asteroids" type="Node" parent="." unique_id=1892032820]
+unique_name_in_owner = true
+
+[node name="Aliens" type="Node" parent="." unique_id=1063560233]
+unique_name_in_owner = true
+
+[node name="UI" parent="." unique_id=1623029833 instance=ExtResource("3_lnu2h")]
+z_index = 2
+
+[node name="GameOver" parent="." unique_id=31464850 instance=ExtResource("4_lbhrr")]
+visible = false
+
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="." unique_id=314366519]
+unique_name_in_owner = true
+stream = ExtResource("5_p57ef")
+volume_db = -5.0
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="." unique_id=706560806]
+unique_name_in_owner = true
+stream = ExtResource("6_u5sy4")
+volume_db = -5.0

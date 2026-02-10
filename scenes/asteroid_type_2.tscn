@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bbljp2itnuchv"]
+
+[ext_resource type="PackedScene" uid="uid://7ygmy5j4e3kq" path="res://scenes/asteroid.tscn" id="1_owpyh"]
+[ext_resource type="Texture2D" uid="uid://dwlg3xj36htem" path="res://assets/sprites/asteroids.svg" id="2_wu3f1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k6q7"]
+atlas = ExtResource("2_wu3f1")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tlxgf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k6q7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Asteroid" unique_id=2070024595 instance=ExtResource("1_owpyh")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="1" unique_id=2085456499]
+sprite_frames = SubResource("SpriteFrames_tlxgf")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2" unique_id=633966853]
+polygon = PackedVector2Array(-31, 40, 5, 18, 38, 42, 44, 4, 33, -40, -3, -26, -22, -30, -31, -13, -44, 6)

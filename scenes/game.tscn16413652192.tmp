@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://btfqtafr1ouyo"]
+
+[ext_resource type="PackedScene" uid="uid://b6p0a1gi5w520" path="res://scenes/space_ship.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://2qngyxwm05qb" path="res://scripts/game_manager.gd" id="2_yqjtg"]
+
+[node name="Game" type="Node2D" unique_id=1742502192]
+
+[node name="SpaceShip" parent="." unique_id=947251370 instance=ExtResource("1_uwrxv")]
+unique_name_in_owner = true
+position = Vector2(397, 322)
+
+[node name="GameManager" type="Node" parent="." unique_id=1135381630]
+script = ExtResource("2_yqjtg")
+
+[node name="Asteroids" type="Node" parent="." unique_id=1892032820]
+unique_name_in_owner = true

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ieyqnnvsdhg6"]
+
+[ext_resource type="Script" uid="uid://cwj4pq5h3a12" path="res://scripts/entities/ufo.gd" id="1_xf4xf"]
+[ext_resource type="Texture2D" uid="uid://cddnphsv0vm82" path="res://assets/sprites/ufo_sprite.svg" id="2_gp6nc"]
+[ext_resource type="AudioStream" uid="uid://caowdehhlg3xg" path="res://assets/sound_effects/bangMedium.wav" id="3_1aa4c"]
+[ext_resource type="AudioStream" uid="uid://cpbi3236d3yl4" path="res://assets/sound_effects/bangSmall.wav" id="4_vvsiw"]
+[ext_resource type="AudioStream" uid="uid://booqt5kjndl8v" path="res://assets/sound_effects/saucerBig.mp3" id="5_linyg"]
+[ext_resource type="AudioStream" uid="uid://cvoqk5splngyv" path="res://assets/sound_effects/saucerSmall.mp3" id="6_tkk3j"]
+
+[sub_resource type="Curve" id="Curve_linyg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.754864, 0.99796116), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="UFO" type="Area2D" unique_id=1484635901 groups=["alien"]]
+script = ExtResource("1_xf4xf")
+
+[node name="Bullets" type="Node" parent="." unique_id=29362928]
+
+[node name="DestroyParticles" type="CPUParticles2D" parent="." unique_id=87301983]
+emitting = false
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 0.5
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 75.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_linyg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1889486813]
+texture = ExtResource("2_gp6nc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=864110615]
+polygon = PackedVector2Array(-21, 23, 20, 23, 39, 10, 39, 6, 20, -6, 18, -9, 14, -23, -14, -23, -19, -9, -21, -6, -39, 6, -39, 10)
+
+[node name="DiagonalCooldownTimer" type="Timer" parent="." unique_id=1676951463]
+one_shot = true
+
+[node name="DiagonalDurationTimer" type="Timer" parent="." unique_id=620304437]
+one_shot = true
+
+[node name="ShotCooldown" type="Timer" parent="." unique_id=2094495052]
+one_shot = true
+
+[node name="MediumExplosionSound" type="AudioStreamPlayer" parent="." unique_id=1895459443]
+stream = ExtResource("3_1aa4c")
+volume_db = -5.0
+
+[node name="SmallExplosionSound" type="AudioStreamPlayer" parent="." unique_id=545004227]
+stream = ExtResource("4_vvsiw")
+volume_db = -5.0
+
+[node name="MediumMovementSound" type="AudioStreamPlayer" parent="." unique_id=1950173422]
+stream = ExtResource("5_linyg")
+volume_db = -10.0
+
+[node name="SmallMovementSound" type="AudioStreamPlayer" parent="." unique_id=703237109]
+stream = ExtResource("6_tkk3j")
+volume_db = -10.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DiagonalCooldownTimer" to="." method="_on_diagonal_movement_timer_timeout"]
+[connection signal="timeout" from="DiagonalDurationTimer" to="." method="_on_diagonal_duration_timer_timeout"]
+[connection signal="timeout" from="ShotCooldown" to="." method="_on_shot_cooldown_timeout"]

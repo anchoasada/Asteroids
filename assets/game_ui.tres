@@ -1,0 +1,45 @@
+[gd_resource type="Theme" format=3 uid="uid://cly8k841h5fg4"]
+
+[ext_resource type="FontFile" uid="uid://b5s8mrvu3qawj" path="res://assets/text_fonts/asteroids-display.otf" id="1_fr32w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fr32w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l3cyi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77ifs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6aw11"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40iel"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjow1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltve"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v6jix"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v3x2r"]
+
+[resource]
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 45
+Button/fonts/font = ExtResource("1_fr32w")
+Button/styles/focus = SubResource("StyleBoxEmpty_fr32w")
+Button/styles/hover = SubResource("StyleBoxEmpty_l3cyi")
+Button/styles/normal = SubResource("StyleBoxEmpty_77ifs")
+Button/styles/normal_mirrored = SubResource("StyleBoxEmpty_6aw11")
+Button/styles/pressed = SubResource("StyleBoxEmpty_40iel")
+Button/styles/pressed_mirrored = SubResource("StyleBoxEmpty_jjow1")
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 3
+Label/font_sizes/font_size = 45
+Label/fonts/font = ExtResource("1_fr32w")
+LineEdit/colors/font_outline_color = Color(1, 1, 1, 1)
+LineEdit/constants/minimum_character_width = 3
+LineEdit/constants/outline_size = 3
+LineEdit/font_sizes/font_size = 45
+LineEdit/fonts/font = ExtResource("1_fr32w")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_gltve")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_v6jix")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_v3x2r")

@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://d0sdfmimpbygn"]
+
+[ext_resource type="Theme" uid="uid://cly8k841h5fg4" path="res://assets/game_ui.tres" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://b0xvlcervryj5" path="res://scripts/ui/ui.gd" id="1_yev5y"]
+[ext_resource type="Texture2D" uid="uid://cyxws3ln8f7mh" path="res://assets/icons/ship_icon.svg" id="3_gdt2y"]
+
+[node name="UI" type="Control" unique_id=1623029833]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yev5y")
+
+[node name="PointsLabel" type="Label" parent="." unique_id=2063605852]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.032
+anchor_right = 0.24300002
+anchor_bottom = 0.09
+offset_top = 0.39999962
+offset_right = 0.2999878
+theme = ExtResource("1_nt7q6")
+text = "000000"
+vertical_alignment = 1
+
+[node name="LivesContainer" type="HBoxContainer" parent="." unique_id=326251890]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044444446
+anchor_top = 0.08375001
+anchor_right = 0.23144446
+anchor_bottom = 0.13475002
+offset_right = -0.3000183
+offset_bottom = 0.19998932
+metadata/_edit_use_anchors_ = true
+
+[node name="SpaceshipIcon" type="TextureRect" parent="LivesContainer" unique_id=1007044704]
+layout_mode = 2
+texture = ExtResource("3_gdt2y")
+expand_mode = 2
+
+[node name="SpaceshipIcon2" type="TextureRect" parent="LivesContainer" unique_id=337759536]
+layout_mode = 2
+texture = ExtResource("3_gdt2y")
+expand_mode = 2
+
+[node name="SpaceshipIcon3" type="TextureRect" parent="LivesContainer" unique_id=438419264]
+layout_mode = 2
+texture = ExtResource("3_gdt2y")
+expand_mode = 2

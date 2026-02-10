@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://hvqlcd4ryfxd"]
+
+[ext_resource type="Script" uid="uid://gyptlohh3cj4" path="res://scripts/entities/bullet.gd" id="1_y25gk"]
+[ext_resource type="Texture2D" uid="uid://dvqylwc3qa1te" path="res://assets/sprites/bullet.svg" id="2_l5glv"]
+[ext_resource type="AudioStream" uid="uid://13vgoby7e18a" path="res://assets/sound_effects/fire.wav" id="3_l5glv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoqba"]
+size = Vector2(5, 5)
+
+[node name="Bullet" type="Area2D" unique_id=92401530]
+rotation = -1.5707964
+collision_mask = 7
+script = ExtResource("1_y25gk")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=118488726]
+texture = ExtResource("2_l5glv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1955094608]
+shape = SubResource("RectangleShape2D_eoqba")
+
+[node name="BulletLifespan" type="Timer" parent="." unique_id=1146439198]
+wait_time = 0.7
+one_shot = true
+
+[node name="ShootingSound" type="AudioStreamPlayer" parent="." unique_id=1950987051]
+stream = ExtResource("3_l5glv")
+volume_db = -5.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="BulletLifespan" to="." method="_on_bullet_lifespan_timeout"]
